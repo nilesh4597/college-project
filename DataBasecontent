@@ -1,0 +1,7 @@
+ create table member(m_id int primary key,m_name varchar(30) not null,member_type char(20) check (member_type in('student', 'faculty')) not null,m_address text not null,m_phone varchar(15) not null,m_age int not null,course_name text,department_name text,date_of_birth varchar(20) not null,height float not null,weight float not null,email_id varchar(40) not null,sex varchar(10) not null);
+create table trainer(tid int primary key,tname varchar(30) not null,taddress varchar(80) not null,date_of_birth varchar(30) not null,mobile_no varchar(30) not null,sex varchar(10) not null,ttype varchar(30),email_id varchar(40),tsal float,tshift varchar(30) check (tshift in('morning', 'evening')),tage int not null);
+ create table machineries(machinery_id int primary key,m_name varchar(30),m_type text,purchase_date varchar(30),price float not null,Odrer_placed_by varchar(30),Company varchar(30) not null,m_status text);
+
+ select member.m_id,m_name,member_type,count(*) from attendance,member where member.m_id=attendance.m_id group by(member.m_id);
+select member_type,count(*) from attendance,member where member.m_id=attendance.m_id group by(member_type);
+
